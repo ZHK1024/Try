@@ -8,19 +8,16 @@
 
 #import "ViewController.h"
 #import "UIImage+QRCode.h"
-#import <GCDWebServer.h>
-#import <GCDWebServerDataResponse.h>
-#import <GCDWebServerFileRequest.h>
-#import <GCDWebServerURLEncodedFormRequest.h>
-#import <GCDWebServerMultiPartFormRequest.h>
-#import <GCDWebServerFileResponse.h>
 #import <Social/Social.h>
 #import "NSString+URL.h"
 
-@interface ViewController ()
+#import "ZHKWiFiServer.h"
 
-@property (nonatomic, strong) GCDWebServer *server;
+@interface ViewController () <WiFiServerDelegate>
+
 @property (weak, nonatomic) IBOutlet UIImageView *QRView;
+
+@property (nonatomic, strong) ZHKWiFiServer *server;
 
 @end
 
@@ -28,68 +25,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.server = [[GCDWebServer alloc] init];
     
-    __weak typeof(self) ws = self;
+    self.server = [ZHKWiFiServer server:self];
+    [_server start];
     
-    // 开启上传页面服务
-    [_server addHandlerForMethod:@"GET"
-                            path:@"/upload.html"
-                    requestClass:[GCDWebServerRequest class]
-                    processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerRequest * _Nonnull request) {
-                        
-        return [GCDWebServerDataResponse responseWithHTML:[ws html]];
-    }];
-    
-    // 开启文件上传服务
-    [_server addHandlerForMethod:@"POST"
-                            path:@"/uploadfile"
-                    requestClass:[GCDWebServerFileRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerFileRequest * _Nonnull request) {
-                        
-                        NSData *data = [NSData dataWithContentsOfFile:request.temporaryPath];
-                        
-                        NSDictionary *params = [request.URL.query paramsFromQuery];
-                        NSString *fileName = params[@"filename"];
-                        
-                        if (fileName.length == 0) {
-                            fileName = [NSString stringWithFormat:@"%.0f", CFAbsoluteTimeGetCurrent()];
-                        } else {
-                            fileName = [ws decodeFromPercentEscapeString:fileName];
-                        }
-                        
-                        NSString *path = [ws filePath];
-                        path = [path stringByAppendingPathComponent:fileName];
-                        [data writeToFile:path atomically:YES];
-                        
-        return [GCDWebServerDataResponse responseWithHTML:@"ok"];
-    }];
-
-    // 开始运行
-    [_server startWithPort:8080 bonjourName:@""];
-    
-    // 生成上传页面 url 的二维码
     _QRView.image = [UIImage QRCodeWithCodeText:_server.serverURL.absoluteString imageSize:600];
 }
 
+#pragma mark - WiFiServer delegate
+
+- (void)fileReceive:(ZHKWiFiServer *)server data:(NSData *)data name:(NSString *)name {
+    [data writeToFile:[[self filePath] stringByAppendingPathComponent:name] atomically:YES];
+}
+
 #pragma mark -
-
-// 解编码
-- (NSString *)decodeFromPercentEscapeString:(NSString *)input {
-    NSMutableString *outputStr = [NSMutableString stringWithString:input];
-    [outputStr replaceOccurrencesOfString:@"+"
-                               withString:@" "
-                                  options:NSLiteralSearch
-                                    range:NSMakeRange(0, [outputStr length])];
-    return [outputStr stringByRemovingPercentEncoding];
-}
-
-// 替换模板中 host
-- (NSString *)html {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"upload" ofType:@"html"];
-    NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NSString *url = [NSString stringWithFormat:@"%@uploadfile", _server.serverURL.absoluteString];
-    return [html stringByReplacingOccurrencesOfString:@"$uploadurl" withString:url];
-}
 
 // 文件存放路径
 - (NSString *)filePath {

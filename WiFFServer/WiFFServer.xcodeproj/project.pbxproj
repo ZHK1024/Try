@@ -19,6 +19,7 @@
 		240645672031405B0010E5F5 /* UIImage+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 240645642031405B0010E5F5 /* UIImage+QRCode.m */; };
 		240645682031405B0010E5F5 /* ZHKQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240645662031405B0010E5F5 /* ZHKQRCodeViewController.m */; };
 		242E4EB220EDBED900AB6DE8 /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E4EB120EDBED900AB6DE8 /* NSString+URL.m */; };
+		242E4EDE20EDFCCB00AB6DE8 /* ZHKWiFiServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E4EDD20EDFCCB00AB6DE8 /* ZHKWiFiServer.m */; };
 		24779D572058FEDC00ACCD5D /* FileListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24779D562058FEDC00ACCD5D /* FileListViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,9 @@
 		240645662031405B0010E5F5 /* ZHKQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHKQRCodeViewController.m; sourceTree = "<group>"; };
 		242E4EB020EDBED900AB6DE8 /* NSString+URL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+URL.h"; sourceTree = "<group>"; };
 		242E4EB120EDBED900AB6DE8 /* NSString+URL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+URL.m"; sourceTree = "<group>"; };
+		242E4EDB20EDFCBA00AB6DE8 /* WiFiServerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WiFiServerDelegate.h; sourceTree = "<group>"; };
+		242E4EDC20EDFCCB00AB6DE8 /* ZHKWiFiServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHKWiFiServer.h; sourceTree = "<group>"; };
+		242E4EDD20EDFCCB00AB6DE8 /* ZHKWiFiServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHKWiFiServer.m; sourceTree = "<group>"; };
 		24779D552058FEDC00ACCD5D /* FileListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileListViewController.h; sourceTree = "<group>"; };
 		24779D562058FEDC00ACCD5D /* FileListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileListViewController.m; sourceTree = "<group>"; };
 		7B4CF21E56A51ACF6DFAA15C /* Pods-WiFFServer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiFFServer.release.xcconfig"; path = "Pods/Target Support Files/Pods-WiFFServer/Pods-WiFFServer.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +67,7 @@
 		24064539203123550010E5F5 = {
 			isa = PBXGroup;
 			children = (
+				242E4EDA20EDFC9300AB6DE8 /* ZHKWiFiServer */,
 				24064544203123550010E5F5 /* WiFFServer */,
 				24064543203123550010E5F5 /* Products */,
 				50D6F130F1FC892EAF840BFE /* Pods */,
@@ -87,10 +92,7 @@
 				24064549203123550010E5F5 /* ViewController.m */,
 				24779D552058FEDC00ACCD5D /* FileListViewController.h */,
 				24779D562058FEDC00ACCD5D /* FileListViewController.m */,
-				242E4EB020EDBED900AB6DE8 /* NSString+URL.h */,
-				242E4EB120EDBED900AB6DE8 /* NSString+URL.m */,
 				240645622031405B0010E5F5 /* ZHKQRCode */,
-				2406455E20312EC90010E5F5 /* upload.html */,
 				2406454B203123550010E5F5 /* Main.storyboard */,
 				24064551203123550010E5F5 /* Assets.xcassets */,
 				24064553203123550010E5F5 /* LaunchScreen.storyboard */,
@@ -110,6 +112,28 @@
 				240645662031405B0010E5F5 /* ZHKQRCodeViewController.m */,
 			);
 			path = ZHKQRCode;
+			sourceTree = "<group>";
+		};
+		242E4EDA20EDFC9300AB6DE8 /* ZHKWiFiServer */ = {
+			isa = PBXGroup;
+			children = (
+				242E4EDB20EDFCBA00AB6DE8 /* WiFiServerDelegate.h */,
+				242E4EDC20EDFCCB00AB6DE8 /* ZHKWiFiServer.h */,
+				242E4EDD20EDFCCB00AB6DE8 /* ZHKWiFiServer.m */,
+				242E4EB020EDBED900AB6DE8 /* NSString+URL.h */,
+				242E4EB120EDBED900AB6DE8 /* NSString+URL.m */,
+				242E4EDF20EDFEA900AB6DE8 /* Resource */,
+			);
+			name = ZHKWiFiServer;
+			path = ../ZHKWiFiServer;
+			sourceTree = "<group>";
+		};
+		242E4EDF20EDFEA900AB6DE8 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2406455E20312EC90010E5F5 /* upload.html */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		50D6F130F1FC892EAF840BFE /* Pods */ = {
@@ -253,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24779D572058FEDC00ACCD5D /* FileListViewController.m in Sources */,
+				242E4EDE20EDFCCB00AB6DE8 /* ZHKWiFiServer.m in Sources */,
 				2406454A203123550010E5F5 /* ViewController.m in Sources */,
 				24064550203123550010E5F5 /* WiFFServer.xcdatamodeld in Sources */,
 				240645672031405B0010E5F5 /* UIImage+QRCode.m in Sources */,
