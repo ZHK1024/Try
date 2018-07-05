@@ -93,7 +93,7 @@
 
 // 文件存放路径
 - (NSString *)filePath {
-    NSString *document = [NSString stringWithFormat:@"/Library/wifiFiles"];
+    NSString *document = @"/Library/wifiFiles";
     NSString *documentPath = [NSHomeDirectory() stringByAppendingPathComponent:document];
     BOOL isDirectory;
     if (![[NSFileManager defaultManager] fileExistsAtPath:documentPath isDirectory:&isDirectory]) {
