@@ -15,6 +15,7 @@
 #import <GCDWebServerMultiPartFormRequest.h>
 #import <GCDWebServerFileResponse.h>
 #import <Social/Social.h>
+#import "NSString+URL.h"
 
 @interface ViewController ()
 
@@ -28,23 +29,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.server = [[GCDWebServer alloc] init];
- 
-    
-//    [_server addDefaultHandlerForMethod:@"GET"
-//                           requestClass:[GCDWebServerRequest class]
-//                           processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerRequest * _Nonnull request) {
-//        return [GCDWebServerDataResponse responseWithHTML:@"hello word"];
-//    }];
     
     __weak typeof(self) ws = self;
-//    [_server addDefaultHandlerForMethod:@"GET"
-//
-//                           requestClass:[GCDWebServerRequest class]
-//                           processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerRequest * _Nonnull request) {
-//        request;
-//        return [GCDWebServerDataResponse responseWithHTML:[ws html]];
-//    }];
     
+    // 开启上传页面服务
     [_server addHandlerForMethod:@"GET"
                             path:@"/upload.html"
                     requestClass:[GCDWebServerRequest class]
@@ -53,54 +41,37 @@
         return [GCDWebServerDataResponse responseWithHTML:[ws html]];
     }];
     
+    // 开启文件上传服务
     [_server addHandlerForMethod:@"POST"
                             path:@"/uploadfile"
                     requestClass:[GCDWebServerFileRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerFileRequest * _Nonnull request) {
-
-//                        NSLog(@"aaurl = %@", request.URL.absoluteString);
                         
                         NSData *data = [NSData dataWithContentsOfFile:request.temporaryPath];
                         
-                        NSString *query = request.URL.query;
-                        NSString *fileName = nil;
+                        NSDictionary *params = [request.URL.query paramsFromQuery];
+                        NSString *fileName = params[@"filename"];
                         
-                        @try {
-                            NSArray *attributes = [query componentsSeparatedByString:@"&"];
-                            if (attributes.count > 0) {
-                                NSString *attribute = attributes.firstObject;
-                                NSArray *kvs = [attribute componentsSeparatedByString:@"="];
-                                fileName = [kvs lastObject];
-                                fileName = [ws decodeFromPercentEscapeString:fileName];
-                            }
-                        } @catch (NSException *exception) {
-                            
-                        }
                         if (fileName.length == 0) {
                             fileName = [NSString stringWithFormat:@"%.0f", CFAbsoluteTimeGetCurrent()];
+                        } else {
+                            fileName = [ws decodeFromPercentEscapeString:fileName];
                         }
                         
                         NSString *path = [ws filePath];
                         path = [path stringByAppendingPathComponent:fileName];
-                        NSLog(@"path = %@", path);
                         [data writeToFile:path atomically:YES];
-                        
-//                        NSLog(@"headers = %@  \n%@    \n%@    %d   %@", request.headers, request.contentType, request.temporaryPath, request.hasBody, request.URL.query);
                         
         return [GCDWebServerDataResponse responseWithHTML:@"ok"];
     }];
-    
-//    [_server addHandlerForMethod:@"GET"
-//                            path:@"/download.html"
-//                    requestClass:[GCDWebServerFileRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerRequest * _Nonnull request) {
-//
-//                        NSString *path = [[NSBundle mainBundle] pathForResource:@"1510648457" ofType:@"zbk"];
-//                        return [GCDWebServerFileResponse responseWithFile:path];
-//    }];
-    
+
+    // 开始运行
     [_server startWithPort:8080 bonjourName:@""];
     
+    // 生成上传页面 url 的二维码
     _QRView.image = [UIImage QRCodeWithCodeText:_server.serverURL.absoluteString imageSize:600];
 }
+
+#pragma mark -
 
 // 解编码
 - (NSString *)decodeFromPercentEscapeString:(NSString *)input {
@@ -137,18 +108,19 @@
     return documentPath;
 }
 
-// 分享按钮
+// 分享链接
 - (IBAction)showSharePinal:(UIButton *)sender {
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[[_server.serverURL URLByAppendingPathComponent:@"upload.html"]] applicationActivities:nil];
     [self presentViewController:activityVC animated:YES completion:nil];
 }
 
+#pragma mark -
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark -
-
+/*
 - (NSString *)formatZeroAtEndWithString:(NSString *)string {
     if (string.length >= 6) {
         return string;
@@ -157,5 +129,6 @@
     NSString *result = [NSString stringWithFormat:formatter, 0];
     return [NSString stringWithFormat:@"%@%@", string, result];
 }
+ */
 
 @end

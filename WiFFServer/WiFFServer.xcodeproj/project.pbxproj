@@ -18,6 +18,7 @@
 		2406455F20312EC90010E5F5 /* upload.html in Resources */ = {isa = PBXBuildFile; fileRef = 2406455E20312EC90010E5F5 /* upload.html */; };
 		240645672031405B0010E5F5 /* UIImage+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 240645642031405B0010E5F5 /* UIImage+QRCode.m */; };
 		240645682031405B0010E5F5 /* ZHKQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240645662031405B0010E5F5 /* ZHKQRCodeViewController.m */; };
+		242E4EB220EDBED900AB6DE8 /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E4EB120EDBED900AB6DE8 /* NSString+URL.m */; };
 		24779D572058FEDC00ACCD5D /* FileListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24779D562058FEDC00ACCD5D /* FileListViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,8 @@
 		240645642031405B0010E5F5 /* UIImage+QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QRCode.m"; sourceTree = "<group>"; };
 		240645652031405B0010E5F5 /* ZHKQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHKQRCodeViewController.h; sourceTree = "<group>"; };
 		240645662031405B0010E5F5 /* ZHKQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHKQRCodeViewController.m; sourceTree = "<group>"; };
+		242E4EB020EDBED900AB6DE8 /* NSString+URL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+URL.h"; sourceTree = "<group>"; };
+		242E4EB120EDBED900AB6DE8 /* NSString+URL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+URL.m"; sourceTree = "<group>"; };
 		24779D552058FEDC00ACCD5D /* FileListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileListViewController.h; sourceTree = "<group>"; };
 		24779D562058FEDC00ACCD5D /* FileListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileListViewController.m; sourceTree = "<group>"; };
 		7B4CF21E56A51ACF6DFAA15C /* Pods-WiFFServer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiFFServer.release.xcconfig"; path = "Pods/Target Support Files/Pods-WiFFServer/Pods-WiFFServer.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +87,8 @@
 				24064549203123550010E5F5 /* ViewController.m */,
 				24779D552058FEDC00ACCD5D /* FileListViewController.h */,
 				24779D562058FEDC00ACCD5D /* FileListViewController.m */,
+				242E4EB020EDBED900AB6DE8 /* NSString+URL.h */,
+				242E4EB120EDBED900AB6DE8 /* NSString+URL.m */,
 				240645622031405B0010E5F5 /* ZHKQRCode */,
 				2406455E20312EC90010E5F5 /* upload.html */,
 				2406454B203123550010E5F5 /* Main.storyboard */,
@@ -254,6 +259,7 @@
 				24064558203123550010E5F5 /* main.m in Sources */,
 				240645682031405B0010E5F5 /* ZHKQRCodeViewController.m in Sources */,
 				24064547203123550010E5F5 /* AppDelegate.m in Sources */,
+				242E4EB220EDBED900AB6DE8 /* NSString+URL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
