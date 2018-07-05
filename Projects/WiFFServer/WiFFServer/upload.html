@@ -1,0 +1,17 @@
+
+<script>
+    function sss() {
+        var f = document.getElementById("f").files;
+        alert(f[0].name);
+        var form = document.getElementById('for');
+        form.action = form.action + "?filename=" + f[0].name;
+        alert(form.action);
+        form.submit();
+    }
+</script>
+
+<form id="for" method="post" enctype="multipart/form-data" action="$uploadurl" >
+    <input id="f" type="file" name="fileName" />
+    <input type="hidden" name="fff" vale="abc">
+    <button type="button" onClick="sss()" name="上传" >上传 </button>
+</form>
