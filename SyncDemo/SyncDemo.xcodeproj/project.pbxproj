@@ -12,6 +12,13 @@
 		24251B5A210575A9000B19D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24251B58210575A9000B19D5 /* Main.storyboard */; };
 		24251B5C210575A9000B19D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24251B5B210575A9000B19D5 /* Assets.xcassets */; };
 		24251B5F210575A9000B19D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24251B5D210575A9000B19D5 /* LaunchScreen.storyboard */; };
+		24251B67210577A7000B19D5 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24251B66210577A7000B19D5 /* Person.swift */; };
+		24251B69210577AE000B19D5 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24251B68210577AE000B19D5 /* Dog.swift */; };
+		24251B6C21057B2C000B19D5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24251B6B21057B2C000B19D5 /* CloudKit.framework */; };
+		24251B6E21057BC3000B19D5 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24251B6D21057BC3000B19D5 /* PersonViewController.swift */; };
+		24251B7021057BCB000B19D5 /* DogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24251B6F21057BCB000B19D5 /* DogViewController.swift */; };
+		24251B722105A62F000B19D5 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 24251B712105A62F000B19D5 /* index.html */; };
+		24251B742105A652000B19D5 /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24251B732105A652000B19D5 /* LicenseViewController.swift */; };
 		8A9FFAED9E223BE9C78E05DD /* Pods_SyncDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E985499A9644BC49C69519B3 /* Pods_SyncDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +30,14 @@
 		24251B5B210575A9000B19D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24251B5E210575A9000B19D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24251B60210575A9000B19D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24251B66210577A7000B19D5 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		24251B68210577AE000B19D5 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		24251B6A21057B2A000B19D5 /* SyncDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SyncDemo.entitlements; sourceTree = "<group>"; };
+		24251B6B21057B2C000B19D5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		24251B6D21057BC3000B19D5 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
+		24251B6F21057BCB000B19D5 /* DogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogViewController.swift; sourceTree = "<group>"; };
+		24251B712105A62F000B19D5 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		24251B732105A652000B19D5 /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		408BE6960B8618D2E54422E6 /* Pods-SyncDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SyncDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SyncDemo/Pods-SyncDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7692E568057934A10C2FA160 /* Pods-SyncDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SyncDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SyncDemo/Pods-SyncDemo.release.xcconfig"; sourceTree = "<group>"; };
 		E985499A9644BC49C69519B3 /* Pods_SyncDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SyncDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,6 +49,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A9FFAED9E223BE9C78E05DD /* Pods_SyncDemo.framework in Frameworks */,
+				24251B6C21057B2C000B19D5 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,8 +77,15 @@
 		24251B53210575A9000B19D5 /* SyncDemo */ = {
 			isa = PBXGroup;
 			children = (
+				24251B6A21057B2A000B19D5 /* SyncDemo.entitlements */,
+				24251B712105A62F000B19D5 /* index.html */,
+				24251B732105A652000B19D5 /* LicenseViewController.swift */,
 				24251B54210575A9000B19D5 /* AppDelegate.swift */,
 				24251B56210575A9000B19D5 /* ViewController.swift */,
+				24251B6D21057BC3000B19D5 /* PersonViewController.swift */,
+				24251B6F21057BCB000B19D5 /* DogViewController.swift */,
+				24251B66210577A7000B19D5 /* Person.swift */,
+				24251B68210577AE000B19D5 /* Dog.swift */,
 				24251B58210575A9000B19D5 /* Main.storyboard */,
 				24251B5B210575A9000B19D5 /* Assets.xcassets */,
 				24251B5D210575A9000B19D5 /* LaunchScreen.storyboard */,
@@ -74,6 +97,7 @@
 		8AFAF9D1C810BE0A2307D4D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24251B6B21057B2C000B19D5 /* CloudKit.framework */,
 				E985499A9644BC49C69519B3 /* Pods_SyncDemo.framework */,
 			);
 			name = Frameworks;
@@ -124,6 +148,17 @@
 					24251B50210575A9000B19D5 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -151,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24251B5F210575A9000B19D5 /* LaunchScreen.storyboard in Resources */,
+				24251B722105A62F000B19D5 /* index.html in Resources */,
 				24251B5C210575A9000B19D5 /* Assets.xcassets in Resources */,
 				24251B5A210575A9000B19D5 /* Main.storyboard in Resources */,
 			);
@@ -211,8 +247,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24251B6E21057BC3000B19D5 /* PersonViewController.swift in Sources */,
+				24251B67210577A7000B19D5 /* Person.swift in Sources */,
 				24251B57210575A9000B19D5 /* ViewController.swift in Sources */,
+				24251B69210577AE000B19D5 /* Dog.swift in Sources */,
 				24251B55210575A9000B19D5 /* AppDelegate.swift in Sources */,
+				24251B742105A652000B19D5 /* LicenseViewController.swift in Sources */,
+				24251B7021057BCB000B19D5 /* DogViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,12 +391,13 @@
 			baseConfigurationReference = 408BE6960B8618D2E54422E6 /* Pods-SyncDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SyncDemo/SyncDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9K5P26QDPB;
 				INFOPLIST_FILE = SyncDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ZHK.SyncDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.weiqian.iCloud;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -367,12 +409,13 @@
 			baseConfigurationReference = 7692E568057934A10C2FA160 /* Pods-SyncDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SyncDemo/SyncDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9K5P26QDPB;
 				INFOPLIST_FILE = SyncDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ZHK.SyncDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.weiqian.iCloud;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
