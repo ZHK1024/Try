@@ -1,3 +1,20 @@
-PODFILE CHECKSUM: 34149e1a7e090b724fc54839881c25e016dfc9c9
+PODS:
+  - IceCream (1.5.0):
+    - RealmSwift
+  - Realm (3.7.4):
+    - Realm/Headers (= 3.7.4)
+  - Realm/Headers (3.7.4)
+  - RealmSwift (3.7.4):
+    - Realm (= 3.7.4)
+
+DEPENDENCIES:
+  - IceCream (~> 1.5.0)
+
+SPEC CHECKSUMS:
+  IceCream: 8c2d37f5de8341e5016b30f54ddd4489b8e707a8
+  Realm: a469bb59e33f9926102ccaea4349822c53b9117e
+  RealmSwift: a45861b21c180f5cf0f122144b9759fa8dde3e9e
+
+PODFILE CHECKSUM: df89a33c54af335a927cd6acd62bf27968e7fee2
 
 COCOAPODS: 1.2.1.beta.1

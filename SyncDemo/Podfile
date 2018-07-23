@@ -6,5 +6,5 @@ target 'SyncDemo' do
   use_frameworks!
 
   # Pods for SyncDemo
-
+  pod 'IceCream', '~> 1.5.0'
 end
