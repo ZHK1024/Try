@@ -7,4 +7,5 @@ target 'SyncDemo' do
 
   # Pods for SyncDemo
   pod 'IceCream', '~> 1.5.0'
+  pod 'TextFieldEffects'
 end

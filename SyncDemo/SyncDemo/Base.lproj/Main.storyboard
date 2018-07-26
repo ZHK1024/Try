@@ -99,23 +99,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="15U-k9-OF7">
-                                <rect key="frame" x="24" y="92" width="327" height="40"/>
+                                <rect key="frame" x="24" y="92" width="327" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="15U-k9-OF7" secondAttribute="height" multiplier="164:20" id="htb-ef-quC"/>
+                                    <constraint firstAttribute="width" secondItem="15U-k9-OF7" secondAttribute="height" multiplier="164:30" id="htb-ef-quC"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.20388454859999999" green="0.59488932289999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oCw-cu-eIR">
-                                <rect key="frame" x="0.0" y="163" width="375" height="504"/>
+                                <rect key="frame" x="0.0" y="183" width="375" height="484"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="g8N-gV-SjS" id="maV-wb-Od7"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="oCw-cu-eIR" firstAttribute="top" secondItem="15U-k9-OF7" secondAttribute="bottom" constant="31" id="89M-Ez-Lfn"/>
                             <constraint firstItem="oCw-cu-eIR" firstAttribute="trailing" secondItem="YMH-dS-PQK" secondAttribute="trailing" id="Kzk-l9-Q8z"/>

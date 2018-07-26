@@ -8,17 +8,38 @@
 
 import UIKit
 import RealmSwift
+import TextFieldEffects
 
 class PersonViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
+    var minour: YoshikoTextField?
+    
     var person: Person?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        textField.alpha = 0
+        
+        minour = YoshikoTextField(frame: CGRect(x: 30, y: 80, width: 315, height: 60))
+//        minour?.tintColor = UIColor.orange
+        minour?.activeBorderColor = UIColor.orange
+        minour?.inactiveBorderColor = UIColor.gray.withAlphaComponent(0.1)
+        minour?.placeholderFontScale = 1.0
+        minour?.placeholderColor = UIColor.gray.withAlphaComponent(0.5)
+        
+//        minour?.borderActiveColor = UIColor.orange
+//        minour?.borderInactiveColor = UIColor.gray
+        
+        minour?.placeholder = "Name"
+        self.view.addSubview(minour!)
+        
+
+//        print(minour)
+        
         tableView.register(UITableViewCell().classForCoder, forCellReuseIdentifier: "cell")
         if person == nil {
             navigationItem.rightBarButtonItem = navigationItem.rightBarButtonItems?.first
