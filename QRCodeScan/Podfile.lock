@@ -1,0 +1,20 @@
+PODS:
+  - Masonry (1.1.0)
+  - ReactiveObjC (3.1.0)
+  - Realm (3.7.4):
+    - Realm/Headers (= 3.7.4)
+  - Realm/Headers (3.7.4)
+
+DEPENDENCIES:
+  - Masonry (~> 1.1.0)
+  - ReactiveObjC (~> 3.1.0)
+  - Realm (~> 3.7.4)
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
+  Realm: a469bb59e33f9926102ccaea4349822c53b9117e
+
+PODFILE CHECKSUM: 35adaee7c23713a2b04b6f05cd7c22311435534d
+
+COCOAPODS: 1.2.1.beta.1

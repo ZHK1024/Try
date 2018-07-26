@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Yj-aG-UxM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lvb-98-gjf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="xqz-vL-zOg"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="8Fc-QJ-VJI"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Lvb-98-gjf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GIK-HZ-kPs"/>
+                            <constraint firstItem="Lvb-98-gjf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="YQY-t8-9JI"/>
+                            <constraint firstItem="Lvb-98-gjf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="b2h-we-5gv"/>
+                            <constraint firstItem="Lvb-98-gjf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qdF-oB-lZH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6yY-Tq-dDS">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="scan" id="KX9-HV-Jqx">
+                            <connections>
+                                <segue destination="XUx-sJ-8y1" kind="push" id="kPb-Hv-uqg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Lvb-98-gjf" id="PxC-aK-NWR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="476" y="133.5832083958021"/>
+        </scene>
+        <!--Code View Controller-->
+        <scene sceneID="TSO-Tt-f9X">
+            <objects>
+                <viewController id="XUx-sJ-8y1" customClass="QRCodeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZNf-T6-jCX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="VL3-aX-eUp"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sYl-CD-FCi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qdc-vc-tGl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1284" y="134"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hLO-9Q-hWs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Yj-aG-UxM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="hnN-Ux-Ml0">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="CAh-i7-1rK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="31y-LB-Kq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-329" y="134"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="scan" width="21" height="21"/>
+    </resources>
+</document>
