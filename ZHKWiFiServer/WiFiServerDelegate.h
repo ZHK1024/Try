@@ -11,6 +11,6 @@
 @class ZHKWiFiServer;
 @protocol WiFiServerDelegate <NSObject>
 
-- (void)fileReceive:(ZHKWiFiServer *)server data:(NSData *)data name:(NSString *)name;
+- (BOOL)fileReceive:(ZHKWiFiServer *)server temporaryPath:(NSString *)temporaryPath name:(NSString *)name;
 
 @end

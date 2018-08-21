@@ -34,8 +34,31 @@
 
 #pragma mark - WiFiServer delegate
 
-- (void)fileReceive:(ZHKWiFiServer *)server data:(NSData *)data name:(NSString *)name {
-    [data writeToFile:[[self filePath] stringByAppendingPathComponent:name] atomically:YES];
+- (BOOL)fileReceive:(ZHKWiFiServer *)server temporaryPath:(NSString *)temporaryPath name:(NSString *)name {
+    NSString *path = [self filePathWithFileName:name];
+    NSInteger count = 0;
+    while ([[NSFileManager defaultManager] fileExistsAtPath:path] == YES) {
+        count++;
+        NSArray *components = [name componentsSeparatedByString:@"."];
+        NSString *fileName = components[0];
+        if (components.count == 2) {
+            NSString *fileExtn = components[1];
+            path = [self filePathWithFileName:[NSString stringWithFormat:@"%@ %ld.%@", fileName, count, fileExtn]];
+            continue;
+        }
+        path = [self filePathWithFileName:[NSString stringWithFormat:@"%@ %ld", fileName, count]];
+    }
+    NSError *error = nil;
+    BOOL res = [[NSFileManager defaultManager] moveItemAtPath:temporaryPath toPath:path error:&error];
+    if (error) {
+        NSLog(@"error: %@", error);
+    }
+    
+    return res;
+}
+
+- (NSString *)filePathWithFileName:(NSString *)fileName {
+    return [[self filePath] stringByAppendingPathComponent:fileName];
 }
 
 #pragma mark -

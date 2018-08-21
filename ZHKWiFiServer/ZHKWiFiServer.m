@@ -10,7 +10,10 @@
 #import "NSString+URL.h"
 #import <GCDWebServer.h>
 #import <GCDWebServerDataResponse.h>
+#import <GCDWebServerFileResponse.h>
 #import <GCDWebServerFileRequest.h>
+#import <GCDWebServerMultiPartFormRequest.h>
+//#import <GCDWebServerMultiPartFormRequest.h>
 
 @interface ZHKWiFiServer ()
 
@@ -67,23 +70,35 @@
     // 开启文件上传服务
     [_server addHandlerForMethod:@"POST"
                             path:@"/uploadfile"
-                    requestClass:[GCDWebServerFileRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerFileRequest * _Nonnull request) {
+                    requestClass:[GCDWebServerMultiPartFormRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerMultiPartFormRequest * _Nonnull request) {
                         
-                        NSData *data = [NSData dataWithContentsOfFile:request.temporaryPath];
-                        
-                        NSDictionary *params = [request.URL.query paramsFromQuery];
-                        NSString *fileName = params[@"filename"];
-                        
-                        if (fileName.length == 0) {
-                            fileName = [NSString stringWithFormat:@"%.0f", CFAbsoluteTimeGetCurrent()];
-                        } else {
-                            fileName = [ws decodeFromPercentEscapeString:fileName];
+                        if (request.files.count == 0) {
+                            NSData *data = [NSJSONSerialization dataWithJSONObject:@{} options:0 error:nil];
+                            return [GCDWebServerDataResponse responseWithData:data contentType:@"json/application"];
                         }
-
-                        if ([ws.delegate respondsToSelector:@selector(fileReceive:data:name:)]) {
-                            [ws.delegate fileReceive:ws data:data name:fileName];
+                        
+                        NSMutableArray *fileNames = [NSMutableArray new];
+                        
+                        for (GCDWebServerMultiPartFile *file in request.files) {
+                            NSString *fileName = file.fileName;
+                            
+                            if (fileName.length == 0) {
+                                fileName = [NSString stringWithFormat:@"%.0f", CFAbsoluteTimeGetCurrent()];
+                            } else {
+                                fileName = [ws decodeFromPercentEscapeString:fileName];
+                            }
+                            
+                            if ([ws.delegate respondsToSelector:@selector(fileReceive:temporaryPath:name:)]) {
+                                BOOL res = [ws.delegate fileReceive:ws temporaryPath:file.temporaryPath name:fileName];
+                                if (res) {
+                                    [fileNames addObject:fileName];
+                                } else {
+                                    NSLog(@"failed");
+                                }
+                            }
                         }
-                        return [GCDWebServerDataResponse responseWithHTML:@"ok"];
+                        NSData * data = [NSJSONSerialization dataWithJSONObject:fileNames options:0 error:nil];
+                        return [GCDWebServerDataResponse responseWithData:data contentType:@"json/application"];
                     }];
 }
 
