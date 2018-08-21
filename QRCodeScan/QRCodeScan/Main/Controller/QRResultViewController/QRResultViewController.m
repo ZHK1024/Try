@@ -73,7 +73,7 @@
 #pragma mark - Action
 
 - (void)moreAction {
-    NSURL *url = [NSURL URLWithString:_res.url];
+    NSURL *url = [NSURL URLWithString:_res.content];
     if (url) {
         [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
             
@@ -96,7 +96,7 @@
     if (_textView == nil) {
         self.textView = [UITextView new];
         _textView.editable = NO;
-        _textView.text  = _res.url;
+        _textView.text  = _res.content;
     }
     return _textView;
 }

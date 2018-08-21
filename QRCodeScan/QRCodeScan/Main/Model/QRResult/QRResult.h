@@ -12,7 +12,7 @@
 
 @property NSString *uuid;
 @property NSString *name;
-@property NSString *url;
+@property NSString *content;
 @property NSString *logo;
 @property NSDate   *date;
 

@@ -136,10 +136,10 @@
     if (_tooBar == nil) {
         self.tooBar = [[UIToolbar alloc] init];
         
-        UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(goBackAction)];
-        UIBarButtonItem *forward = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(goForwordAction)];
-        UIBarButtonItem *share = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(shareAction)];
-        UIBarButtonItem *open = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRedo target:self action:@selector(openWithSafari)];
+        UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStyleDone target:self action:@selector(goBackAction)];
+        UIBarButtonItem *forward = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"forward"] style:UIBarButtonItemStyleDone target:self action:@selector(goForwordAction)];
+        UIBarButtonItem *share = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStyleDone target:self action:@selector(shareAction)];
+        UIBarButtonItem *open = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"safari"] style:UIBarButtonItemStyleDone target:self action:@selector(openWithSafari)];
         
         RAC(back, enabled) = RACObserve(_webView, canGoBack);
         RAC(forward, enabled) = RACObserve(_webView, canGoForward);

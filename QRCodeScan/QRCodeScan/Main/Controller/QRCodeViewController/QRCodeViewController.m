@@ -30,7 +30,7 @@
 - (void)qrcodeScanSuccessWithMessage:(NSString *)message {
     
     QRResult *res = [[QRResult alloc] init];
-    res.url  = message;
+    res.content  = message;
     res.name = message;
     
     NSURL *url = [NSURL URLWithString:message];
@@ -39,7 +39,6 @@
         wkwebView.url = url;
         wkwebView.res = res;
         [self.navigationController pushViewController:wkwebView animated:YES];
-        
         res.name = @"URL";
     } else {
         res.name = @"Text";

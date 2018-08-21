@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "QRHistoryViewCell.h"
 #import "QRResultViewController.h"
+#import "WKWebViewController.h"
 #import <Realm.h>
 #import "QRResult.h"
 
@@ -70,9 +71,15 @@
 // row select
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     QRResultViewController *resultVC = [[QRResultViewController alloc] init];
     resultVC.res = _history[indexPath.row];
     [self.navigationController pushViewController:resultVC animated:YES];
+    
+//    QRResult *res = _history[indexPath.row];
+//    WKWebViewController *wkwebVC = [[WKWebViewController alloc] init];
+//    wkwebVC.url = [NSURL URLWithString:res.url];
+//    [self.navigationController pushViewController:wkwebVC animated:YES];
 }
 
 // row heighr
